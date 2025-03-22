@@ -1,22 +1,28 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class ContactPage extends BasePage{
 
-    public static final String DATA_BY_FIELD_NAME_XPATH = "//*[@class='record-body-container']//*[text()='%s']//parent::div//parent::dt//parent::div//*[@slot]";
-    public static final String DATA_LINK_BY_FIELD_NAME_XPATH = "//*[@class='record-body-container']//*[text()='%s']//parent::div//parent::dt//parent::div//a//span//span//span";
+    public static final String DATA_BY_FIELD_NAME_XPATH = "//*[@field-label='%s']//*[@slot]";
 
-    public ContactPage(WebDriver driver) {
-        super(driver);
+    public ContactPage() {
     }
 
     public String getFieldValueByName(String name) {
-        return driver.findElement(By.xpath(String.format(DATA_BY_FIELD_NAME_XPATH, name))).getText();
+        return $x(String.format(DATA_BY_FIELD_NAME_XPATH, name)).getText();
     }
 
     public String getFieldLinkValueByName(String name) {
-        return driver.findElement(By.xpath(String.format(DATA_LINK_BY_FIELD_NAME_XPATH, name))).getText();
+        String text = $x(String.format(DATA_BY_FIELD_NAME_XPATH, name)).getText();
+        return getSecondWord(text);
+    }
+
+    public static String getSecondWord(String text) {
+        String[] words = text.split("\\s+");
+        if (words.length < 2) {
+            throw new IllegalArgumentException("Текст содержит менее двух слов");
+        }
+        return words[1];
     }
 }

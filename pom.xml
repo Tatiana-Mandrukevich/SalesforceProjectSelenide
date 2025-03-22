@@ -12,7 +12,6 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <selenium-java.version>4.28.1</selenium-java.version>
         <testng.version>7.4.0</testng.version>
         <webdrivermanager.version>5.9.3</webdrivermanager.version>
         <hamcrest.version>3.0</hamcrest.version>
@@ -21,6 +20,8 @@
         <aspectjweaver.version>1.9.22</aspectjweaver.version>
         <jackson-dataformat-yaml.version>2.17.2</jackson-dataformat-yaml.version>
         <log4j-core.version>2.20.0</log4j-core.version>
+        <selenide.version>7.7.3</selenide.version>
+        <selenide-core.version>7.7.3</selenide-core.version>
     </properties>
 
     <build>
@@ -54,12 +55,6 @@
     </build>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>${selenium-java.version}</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
@@ -105,5 +100,18 @@
             <artifactId>log4j-core</artifactId>
             <version>${log4j-core.version}</version> <!-- Убедитесь, что версия актуальна -->
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.codeborne/selenide -->
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.codeborne/selenide-core -->
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide-core</artifactId>
+            <version>${selenide-core.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
     </dependencies>
 </project>

@@ -7,7 +7,6 @@ public class HomePage extends BasePage{
 
     public static final By WELCOME_TITLE = By.xpath("//*[@class = 'spotlightTitleText']");
 
-    public HomePage(WebDriver driver) {
-        super(driver);
+    public HomePage() {
     }
 }
